@@ -1,1 +1,1 @@
-# menara_hanoi
+# game_menara_hanoi

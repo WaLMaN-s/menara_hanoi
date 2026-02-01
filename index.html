@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Tower of Hanoi - Puzzle Klasik</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🗼 Tower of Hanoi</h1>
+        <p>Pindahkan semua disk ke Tower C!</p>
+    </div>
+
+    <div class="instructions">
+        <h3>📋 Cara Bermain:</h3>
+        <ul>
+            <li><strong>Klik:</strong> Klik disk paling atas untuk memilih, lalu klik tower tujuan</li>
+            <li><strong>Drag & Drop:</strong> Seret disk ke tower tujuan (background hijau = bisa, merah = tidak bisa)</li>
+            <li>Disk besar tidak boleh diletakkan di atas disk kecil</li>
+            <li><strong>Tujuan:</strong> Pindahkan semua disk ke Tower C</li>
+        </ul>
+    </div>
+
+    <div class="game-info">
+        <div class="info-box">
+            <label>Jumlah Langkah</label>
+            <div class="value" id="moveCount">0</div>
+        </div>
+        <div class="info-box">
+            <label>Langkah Minimum</label>
+            <div class="value" id="minMoves">-</div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="tower" data-tower="0">
+            <div class="tower-label tower-a">TOWER A</div>
+            <div class="tower-stack" id="tower-0">
+                <div class="tower-pole"></div>
+            </div>
+            <div class="tower-base"></div>
+        </div>
+
+        <div class="tower" data-tower="1">
+            <div class="tower-label tower-b">TOWER B</div>
+            <div class="tower-stack" id="tower-1">
+                <div class="tower-pole"></div>
+            </div>
+            <div class="tower-base"></div>
+        </div>
+
+        <div class="tower" data-tower="2">
+            <div class="tower-label tower-c">TOWER C</div>
+            <div class="tower-stack" id="tower-2">
+                <div class="tower-pole"></div>
+            </div>
+            <div class="tower-base"></div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn btn-difficulty" onclick="setDifficulty(3)">Mudah (3 Disk)</button>
+        <button class="btn btn-difficulty" onclick="setDifficulty(4)">Sedang (4 Disk)</button>
+        <button class="btn btn-difficulty" onclick="setDifficulty(5)">Sulit (5 Disk)</button>
+        <button class="btn btn-reset" onclick="resetGame()">🔄 Reset Game</button>
+    </div>
+
+    <div class="modal" id="winModal">
+        <div class="modal-content">
+            <h2>🎉 Selamat!</h2>
+            <p style="color: #fbbf24; font-size: 1.5em; font-weight: bold;">Puzzle Berhasil Diselesaikan!</p>
+            <div class="stats">
+                <p>Total Langkah: <strong id="finalMoves">0</strong></p>
+                <p>Langkah Minimum: <strong id="finalMinMoves">0</strong></p>
+                <p id="performanceText"></p>
+            </div>
+            <button class="btn btn-reset" onclick="closeModal()">Main Lagi</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
